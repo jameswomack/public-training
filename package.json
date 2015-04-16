@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --content-base subjects"
+    "start": "webpack-dev-server --port 7000 --inline --content-base subjects"
   },
   "author": "",
   "license": "ISC",
