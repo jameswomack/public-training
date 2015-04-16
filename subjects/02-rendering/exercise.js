@@ -17,7 +17,7 @@ var React = require('react');
 var sortBy = require('sort-by');
 
 var DATA = {
-  title: 'Menu',
+  title: '¡Tu Mero Mole Menu!',
   items: [
     { id: 1, name: 'tacos', type: 'mexican' },
     { id: 2, name: 'burrito', type: 'mexican' },
@@ -26,11 +26,25 @@ var DATA = {
   ]
 };
 
+var mexicanFoodElements = DATA.items
+.filter(function(item){
+  return item.type === 'mexican';
+})
+.map(function(mexicanItem){
+  mexicanItem.name = 'A ' + mexicanItem.name + ' would be awesome.';
+  return mexicanItem;
+})
+.sort(sortBy('name'))
+.map(function(mexicanItemSortedAndEnhanced){
+  return <li>{mexicanItemSortedAndEnhanced.name}</li>;
+});
+
 function render() {
   return (
-    <div>
-      Open the console, you have failing tests
-    </div>
+    <section>
+      <h1>{DATA.title}</h1>
+      <ul>{mexicanFoodElements}</ul>
+    </section>
   );
 }
 
